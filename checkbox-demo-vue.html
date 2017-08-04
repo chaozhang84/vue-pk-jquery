@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox-vue</title>
+    <script src="lib/vue/vue.js"></script>
+</head>
+<body>
+
+<div id="checkboxTable">
+    <div v-for="pced in pickeds">
+    <input type="checkbox" :value="pced[0]" v-model="picked" @change="checkLine(pced[0])" />
+
+    <input type="checkbox" :value="pced[1]" v-model="picked1"/><br>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+  new Vue({
+    el: '#checkboxTable',
+    data: {
+      pickeds :[["one1-1","one2-1"],["one1-2","one2-2"]],
+      picked: [],
+      picked1: []
+    },
+    methods:{
+      checkLine:function(nowVal){
+        var pickedChecked1 = new Array();
+
+        var isIn = false;
+
+        for(var i=0;i<this.picked.length;i++){
+          if(nowVal===this.picked[i]){
+              isIn = true;
+              for(var a=0;a<this.pickeds.length;a++){
+                if(this.pickeds[a][0]===this.picked[i]){
+                  pickedChecked1.push(this.pickeds[a][1])
+                  break;
+                }
+              }
+          }
+        }
+
+        var nowVal1 = "";
+        for(var a=0;a<this.pickeds.length;a++){
+          if(this.pickeds[a][0]===nowVal){
+            nowVal1 = this.pickeds[a][1];
+            break;
+          }
+        }
+
+        for(var i=0;i<this.picked1.length;i++){
+          if(isIn) {
+            pickedChecked1.push(this.picked1[i]);
+          }else{
+            if(nowVal1!=this.picked1[i]) {
+              pickedChecked1.push(this.picked1[i]);
+            }
+          }
+        }
+
+        this.picked1 = pickedChecked1
+
+        console.info(this.picked1);
+      }
+    }
+  })
+
+</script>

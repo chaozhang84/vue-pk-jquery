@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox-jquery</title>
+    <script src="lib/jquery/jquery.js"></script>
+</head>
+<body>
+
+<div id="checkboxTable">
+    <div>
+        <input type="checkbox"  name="c_test" value="one1-1"/>
+        <input type="checkbox"  name="c_test" value="one2-1"/>
+    </div>
+    <div>
+        <input type="checkbox"  name="c_test" value="one1-2"/>
+        <input type="checkbox"  name="c_test" value="one2-2"/>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+  $(function () {
+    $("#checkboxTable div").each(function(key,val){
+      $(val).find("input").each(function (k1,v1) {
+        if(k1==0){
+            $(v1).change(function(){
+              $(this).parent().find("input").prop("checked",$(this).prop("checked"));
+            });
+        }
+      })
+    })
+  })
+</script>
