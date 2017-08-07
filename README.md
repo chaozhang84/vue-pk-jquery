@@ -4,6 +4,14 @@
 
 * vue核心操作为数据，从一开始就进行数据准备，到后期数据操作虽然产生了大量的代码，但是代码自身更加简单，完全是对数据对象进行操作。并且在操作过程中直接完成了数据获取的功能不需要单独再获取已选数据。
 
-## 通过一个多选框联动选择的例子来对比vue与jquery的代码量和编程思路的区别
 
-## 通过一个动态插入数据的例子来对比vue与jquery的代码量和编程思路的区别
+# 实例列表
+
+## 多选框联动选择
+* checkbox-demo-jquery.html
+* checkbox-demo-vue.html
+
+## 动态插入数据
+
+* img-insert-demo-jquery.html
+* img-insert-demo-vue.html
