@@ -24,24 +24,41 @@
         {key:"5",value:"测试数据5"}
       ]
 
-      var imgArray = [
-        {imgPath:"img/test.png",imgTitle:""}
-      ]
+//      var imgArray = [
+//        {imgPath:"img/test.png",imgTitle:""}
+//      ]
 
       var contentHtml = "";
       $(content).each(function (key,val) {
-        if(key===1){
-          contentHtml += "<div><img src="+imgArray[0].imgPath+"></div>"
-        }
-
-        if(key===2){
-          contentHtml += "<div><img src="+imgArray[0].imgPath+"></div>"
-        }
-        contentHtml += "<div>"+val.value+"</div>"
+//        if(key===1){
+//          contentHtml += "<div><img src="+imgArray[0].imgPath+"></div>"
+//        }
+//
+//        if(key===2){
+//          contentHtml += "<div><img src="+imgArray[0].imgPath+"></div>"
+//        }
+        contentHtml += "<div class='list_'>"+val.value+"</div>"
       })
 
       $("#list-conent").html(contentHtml);
 
+
+      //此处改为ajax
+      var imgArray = [
+        {imgPath:"img/test.png",imgTitle:""}
+      ]
+
+      //以下内容放到success方法里
+      $(".list_").each(function (key,val) {
+        if(key===1){
+          $(val).after("<div><img src="+imgArray[0].imgPath+"></div>")
+        }
+
+        if(key===2){
+          $(val).after("<div><img src="+imgArray[0].imgPath+"></div>")
+        }
+        
+      });
 
     })
 
