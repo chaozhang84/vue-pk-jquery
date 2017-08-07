@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-demo-insert-img</title>
+    <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+<div id="list-conent">
+
+
+</div>
+
+
+<script>
+    $(function () {
+
+      var content = [
+        {key:"1",value:"测试数据1"},
+        {key:"2",value:"测试数据2"},
+        {key:"3",value:"测试数据3"},
+        {key:"4",value:"测试数据4"},
+        {key:"5",value:"测试数据5"}
+      ]
+
+      var imgArray = [
+        {imgPath:"img/test.png",imgTitle:""}
+      ]
+
+      var contentHtml = "";
+      $(content).each(function (key,val) {
+        if(key===1){
+          contentHtml += "<div><img src="+imgArray[0].imgPath+"></div>"
+        }
+
+        if(key===2){
+          contentHtml += "<div><img src="+imgArray[0].imgPath+"></div>"
+        }
+        contentHtml += "<div>"+val.value+"</div>"
+      })
+
+      $("#list-conent").html(contentHtml);
+
+
+    })
+
+
+</script>
+</body>
+</html>

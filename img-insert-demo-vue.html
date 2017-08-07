@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-demo-insert-img</title>
+    <script src="lib/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="list-conent">
+    <div v-for="(cnt,index) in content">
+        <div v-if="index===1">
+            <img :src="imgArray[0].imgPath">
+        </div>
+        <div v-if="index===3">
+            <img :src="imgArray[0].imgPath">
+        </div>
+        <div v-else>
+            {{cnt.value}}
+        </div>
+    </div>
+</div>
+
+
+<script>
+    new Vue({
+      el: '#list-conent',
+      data: {
+        content :[
+          {key:"1",value:"测试数据1"},
+          {key:"2",value:"测试数据2"},
+          {key:"3",value:"测试数据3"},
+          {key:"4",value:"测试数据4"},
+          {key:"5",value:"测试数据5"}
+        ],
+        imgArray: [
+          {imgPath:"img/test.png",imgTitle:""}
+        ]
+      },
+      methods:{
+
+      }
+    })
+
+
+</script>
+</body>
+</html>
