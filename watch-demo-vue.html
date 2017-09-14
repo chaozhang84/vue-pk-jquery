@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-demo-insert-img</title>
+    <script src="lib/vue/vue.js"></script>
+</head>
+<body>
+
+<div id="list-conent">
+<div>
+    <input  v-model="testVal" />
+</div>
+<div>
+<input  v-model="test.test1" />
+<input  v-model="test.test2" />
+</div>
+<div>
+<input type="checkbox" value="1" v-model="testArray"/>
+<input type="checkbox" value="2" v-model="testArray"/>
+</div>
+</div>
+
+
+<script>
+    new Vue({
+      el: '#list-conent',
+      data: {
+          test: {
+              test1: 1,
+              test2: '2'
+          },
+          testArray : [],
+          testVal:""
+      },
+      watch:{
+          testVal(newValue,oldValue){
+              console.log("testVal:"+newValue)
+          },
+          test: {
+              handler(newValue, oldValue) {
+                  console.log(newValue)
+              },
+              deep: true
+          },
+          testArray: {
+              handler(newValue, oldValue) {
+                  console.log(newValue)
+              },
+              deep: true
+          }
+      }
+    })
+
+
+</script>
+</body>
+</html>
